@@ -9,18 +9,22 @@ A=20
 B=40
 C=50
 
+#Calculating shipping cost
 def shipping_cost():
     shipping_cost = ((q_total - 1) // 10 + 1)*5
     return shipping_cost
 
+#Calculating discount and choosing it's name based on rule applicable
 def discount_info(subtotal):
     select_discount=["None","flat_10_discount","bulk_5_discount","bulk_10_discount","tiered_50_discount"]
     final_discount=[0.0]
 
+    #flat_10_discount
     if subtotal>200:
         flat_10_discount=10
         final_discount.append(flat_10_discount)
 
+    #bulk_5_discount
     if qA>10 or qB>10 or qC>10:
         bulk_5_discount=0
         if qA>10:
@@ -36,10 +40,12 @@ def discount_info(subtotal):
             bulk_5_discount+=disc_C
         final_discount.append(bulk_5_discount)
 
+    #bulk_10_discount
     if q_total>20:
         bulk_10_discount=subtotal*0.10
         final_discount.append(bulk_10_discount)
 
+    #tiered_50_discount
     if q_total> 30 and (qA > 15 or qB > 15 or qC > 15):
         discount_A=A*max(qA - 15, 0) 
         discount_B=B*max(qB - 15, 0)
@@ -48,6 +54,7 @@ def discount_info(subtotal):
         tiered_50_discount=0.5*(discount_A+discount_B+discount_C)
         final_discount.append(tiered_50_discount)
 
+    #Getting final discount amount applicable and it's name
     Damount=max(final_discount)
     Dindex=final_discount.index(Damount)
     Dname=select_discount[Dindex]
@@ -74,7 +81,6 @@ B_info = ['B', qB, qB * B]
 C_info = ['C', qC, qC * C]
 
 Dname,Damount=discount_info(subtotal)
-
 ship_cost=shipping_cost()
 
 if gift=='Y' or gift=='YES':
