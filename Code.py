@@ -1,12 +1,8 @@
 """
-                                                Bill Calculator - Catalog and Discount
-
-This Python program implements a discount calculator for a catalog with three products: Product A, Product B, and Product C.
-The code applies various discount rules based on the total cart value and individual product quantities, calculating discounts, fees, and the final total.
-The program adheres to certain specifications like, accepting user input for product quantities and gift wrapping preferences.
-It provides a command-line interface for interaction and has been developed without the use of external frameworks or libraries.
-Follow the instructions in the README to run the program and view the detailed bill.
+                                           Bill Calculator - Catalog and Discount
+Discount Calculator for a product catalog with Python. Applies discounts and calculates fees based on user input for product quantities and gift wrapping preferences. Follow README for instructions and project details.
 """
+
 
 #Price of products
 A=20
